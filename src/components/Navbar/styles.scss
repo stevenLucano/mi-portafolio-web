@@ -1,0 +1,133 @@
+@mixin keyframes($name, $ti, $ri, $tf, $rf) {
+  @keyframes #{$name} {
+    0% {
+      transform: translateY($ti) translateX(11px) rotate($ri);
+    }
+    50% {
+      transform: translateY(23px) translateX(11px);
+    }
+    100% {
+      transform: translateY($tf) translateX(11px) rotate($rf);
+    }
+  }
+}
+
+@mixin animate($animation, $duration, $method) {
+  animation: $animation $duration $method;
+}
+
+.navbar {
+  height: 100px;
+  width: 100vw;
+  background-color: var(--indigo-paper);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+
+  &-link {
+    opacity: 1;
+    height: 25px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: 0.2s ease-in;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: var(--blue-sky);
+
+    &:hover {
+      border-bottom: 2px solid var(--blue-sky);
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.btn-float {
+  display: none;
+  background-color: var(--indigo-paper);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--blue-sky);
+    transform: translateY(14px) translateX(11px);
+    box-shadow: 0 9px 0 var(--blue-sky);
+    transition: 1s 0.5s;
+    @include keyframes(close-up, 23px, -45deg, 14px, 0deg);
+    @include animate(close-up, 1s, forwards);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--blue-sky);
+    transform: translateY(32px) translateX(11px);
+    @include keyframes(close-down, 23px, 45deg, 32px, 0deg);
+    @include animate(close-down, 1s, forwards);
+  }
+
+  &-open {
+    &::before {
+      transition: 0.2s;
+      box-shadow: 0 9px 0 var(--indigo-paper);
+      @include keyframes(open-up, 14px, 0deg, 23px, -45deg);
+      @include animate(open-up, 1s, forwards);
+    }
+    &::after {
+      @include keyframes(open-down, 32px, 0deg, 23px, 45deg);
+      @include animate(open-down, 1s, forwards);
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: start;
+    border-radius: 0 0 0 300px;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: 0;
+    transition: 0.5s 0.2s cubic-bezier(0.42, 0, 0.03, 1.42);
+
+    &-link {
+      &:nth-child(1) {
+        margin-top: 60px;
+      }
+      opacity: 0;
+      // display: none;
+      font-size: 0px;
+    }
+    &-open {
+      width: 300px;
+      height: 300px;
+
+      .navbar-link {
+        // display: block;
+        opacity: 1;
+        font-size: 22px;
+        transition: 0.5s 0.2s;
+      }
+    }
+  }
+
+  .btn-float {
+    display: unset;
+  }
+}

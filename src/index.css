@@ -1,4 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;800&display=swap');
+
 :root {
+  --sunset-orange: #E46305;
+  --indigo-paper: #002544;
+  --sea-blue: #016ABC;
+  --insubstantial: #B9DFFF;
+  --blue-sky: #ECF6FF;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -67,4 +83,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
