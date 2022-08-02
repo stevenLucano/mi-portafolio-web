@@ -20,27 +20,49 @@
   height: 100px;
   width: 100vw;
   background-color: var(--indigo-paper);
-  display: flex;
-  justify-content: end;
-  align-items: center;
   font-family: "Nunito", sans-serif;
+  display: grid;
+  grid-template-columns: auto 120px 10px repeat(2, 150px 10px) 2%;
+  grid-template-rows: 30%;
+  align-content: center;
+
+  &-activated {
+    border-bottom: 2px solid var(--blue-sky);
+  }
 
   &-link {
-    opacity: 1;
-    height: 25px;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: 0.2s ease-in;
-    margin-left: 50px;
-    margin-bottom: 20px;
+    height: 100%;
+    width: 100%;
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        grid-area: 1 / #{2 * $i} / 1 / #{2 * $i + 1};
+      }
+    }
+    text-align: center;
     font-size: 22px;
+    text-decoration: none;
     text-transform: uppercase;
     color: var(--blue-sky);
 
-    &:hover {
-      border-bottom: 2px solid var(--blue-sky);
-      padding-bottom: 5px;
-    }
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // a {
+    //   text-decoration: none;
+    //   height: 100%;
+    // }
+    // opacity: 1;
+    // margin: 0 10px;
+    // transition: 0.2s ease-in;
+    // margin-left: 50px;
+    // margin-bottom: 20px;
+    // &:nth-child(3) {
+    //   margin-right: 30px;
+    // }
+
+    // &:hover {
+    //   border-bottom: 2px solid var(--blue-sky);
+    // }
   }
 }
 
@@ -97,8 +119,10 @@
 
 @media (max-width: 400px) {
   .navbar {
+    display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: center;
     border-radius: 0 0 0 300px;
     width: 0px;
     height: 0px;
@@ -107,19 +131,22 @@
     transition: 0.5s 0.2s cubic-bezier(0.42, 0, 0.03, 1.42);
 
     &-link {
+      margin-top: 16px;
+      margin-left: 40px;
       &:nth-child(1) {
-        margin-top: 60px;
+        margin-top: 64px;
       }
       opacity: 0;
-      // display: none;
       font-size: 0px;
+      height: auto;
+      width: 200px;
+      transition: 0.5s;
     }
     &-open {
       width: 300px;
       height: 300px;
 
       .navbar-link {
-        // display: block;
         opacity: 1;
         font-size: 22px;
         transition: 0.5s 0.2s;
