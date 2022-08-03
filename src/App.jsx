@@ -1,13 +1,22 @@
 import "./App.css";
 import Contacto from "./components/Contacto";
+import InfoProyecto from "./components/InfoProyecto";
 import Inicio from "./components/Inicio";
 import Navbar from "./components/Navbar";
 import Portafolio from "./components/Portafolio";
 
 function App() {
   const body = document.querySelector("body");
+
+  window.addEventListener("scroll", () => {
+    // console.log(window.scrollY);
+    const port = document.getElementById("portafolio");
+    if (window.scrollY >= 330) {
+      // port.style.color = "#fff";
+    }
+  });
+
   body.addEventListener("click", (e) => {
-    // console.log(e.target.classList.contains("navbar"));
     if (
       !(
         e.target.classList.contains("navbar") ||
@@ -22,6 +31,7 @@ function App() {
   });
   return (
     <div className="App">
+      <InfoProyecto />
       <Navbar />
       <Inicio />
       <Portafolio />

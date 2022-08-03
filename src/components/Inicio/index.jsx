@@ -3,7 +3,7 @@ import "./styles.scss";
 import React from "react";
 
 const Inicio = () => {
-  return <div id="inicio">Soy el inicio</div>;
+  return <main id="inicio">Soy el inicio</main>;
 };
 
 export default Inicio;

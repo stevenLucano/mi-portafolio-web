@@ -1,8 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const ResContext = createContext();
 const ResProvider = (props) => {
-  const [Resolution, setResolution] = useState("mobile");
+  const [Resolution, setResolution] = useState("cargando...");
+  const [ImgInfo, setImgInfo] = useState({ img: "", url: "" });
 
   window.addEventListener("resize", () => {
     changeHover(window.innerWidth, screen.width);
@@ -25,8 +26,14 @@ const ResProvider = (props) => {
     }
   };
 
+  useEffect(() => {
+    changeHover(window.innerWidth, screen.width);
+  }, []);
+
   return (
-    <ResContext.Provider value={{ Resolution, setResolution }}>
+    <ResContext.Provider
+      value={{ Resolution, setResolution, ImgInfo, setImgInfo }}
+    >
       {props.children}
     </ResContext.Provider>
   );
