@@ -2,4 +2,27 @@
   width: 100%;
   padding-bottom: 10px;
   background-color: var(--sunset-orange);
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 0px;
+}
+
+.portfolio-title {
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  display: inline-block;
+  color: var(--blue-sky);
+  border-bottom: 2px solid var(--blue-sky);
+  margin: 20px 10vw;
+}
+
+@media (min-width: 400px) {
+  #portafolio {
+    scroll-margin-top: 75px;
+  }
+  .portfolio-title {
+    font-size: 50px;
+    margin: 20px auto;
+  }
 }

@@ -4,13 +4,14 @@ import Proyecto from "../Proyecto";
 
 const VistaProyectos = ({ subt }) => {
   return (
-    <article>
+    <article className="section-project">
       <Proyecto img="tengen.jpg" subtitle={subt} url="http://uzui-tengen.com" />
       <Proyecto
         img="itachi.jpg"
         subtitle={subt}
         url="http://itachi-uchiha.com"
       />
+      <Proyecto img="tengen.jpg" subtitle={subt} url="http://uzui-tengen.com" />
     </article>
   );
 };

@@ -6,9 +6,15 @@ import { ResContext } from "../../context/ResProvider";
 const Proyecto = ({ img, subtitle, url }) => {
   const { setImgInfo } = useContext(ResContext);
 
-  const openProject = () => {
+  const openInfo = () => {
     const screen = document.querySelector(".dark-screen");
+    const imgProj = document.querySelector(".image-info");
+    const linkProj = document.querySelector(".link-info");
+
     screen.classList.add("dark-screen-activated");
+    imgProj.classList.add("image-info-activated");
+    linkProj.classList.add("link-info-activated");
+
     setImgInfo({
       img,
       url,
@@ -19,8 +25,9 @@ const Proyecto = ({ img, subtitle, url }) => {
       <div
         className="card-image"
         onClick={() => {
-          openProject();
+          openInfo();
         }}
+        title={url}
       >
         <img src={`./images/${img}`} alt="proyecto-ej" />
       </div>

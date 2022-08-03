@@ -1,0 +1,18 @@
+.section-project {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 400px) {
+  .section-project {
+    width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 280px);
+    grid-template-rows: 420px;
+    grid-column-gap: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
