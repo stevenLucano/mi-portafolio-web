@@ -17,7 +17,8 @@
 }
 
 .navbar {
-  height: 100px;
+  position: fixed;
+  height: 75px;
   width: 100vw;
   background-color: var(--indigo-paper);
   font-family: "Nunito", sans-serif;
@@ -25,6 +26,7 @@
   grid-template-columns: auto 120px 10px repeat(2, 150px 10px) 2%;
   grid-template-rows: 30%;
   align-content: center;
+  box-shadow: 0 2px 10px black;
 
   &-activated {
     border-bottom: 2px solid var(--blue-sky);
@@ -33,6 +35,7 @@
   &-link {
     height: 100%;
     width: 100%;
+    font-weight: 600;
     @for $i from 1 through 3 {
       &:nth-child(#{$i}) {
         grid-area: 1 / #{2 * $i} / 1 / #{2 * $i + 1};
@@ -43,26 +46,6 @@
     text-decoration: none;
     text-transform: uppercase;
     color: var(--blue-sky);
-
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // a {
-    //   text-decoration: none;
-    //   height: 100%;
-    // }
-    // opacity: 1;
-    // margin: 0 10px;
-    // transition: 0.2s ease-in;
-    // margin-left: 50px;
-    // margin-bottom: 20px;
-    // &:nth-child(3) {
-    //   margin-right: 30px;
-    // }
-
-    // &:hover {
-    //   border-bottom: 2px solid var(--blue-sky);
-    // }
   }
 }
 
@@ -72,10 +55,12 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  position: fixed;
+  right: 10px;
+  top: 10px;
   border: none;
+  box-shadow: -2px 2px 10px black;
+  transition: 1s 0.2s;
 
   &::before {
     content: "";
@@ -104,9 +89,12 @@
   }
 
   &-open {
+    transition: 1s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0);
+
     &::before {
       transition: 0.2s;
-      box-shadow: 0 9px 0 var(--indigo-paper);
+      box-shadow: 0 9px 0 rgba(0, 0, 0, 0);
       @include keyframes(open-up, 14px, 0deg, 23px, -45deg);
       @include animate(open-up, 1s, forwards);
     }
@@ -126,15 +114,15 @@
     border-radius: 0 0 0 300px;
     width: 0px;
     height: 0px;
-    position: absolute;
+    position: fixed;
     right: 0;
     transition: 0.5s 0.2s cubic-bezier(0.42, 0, 0.03, 1.42);
 
     &-link {
       margin-top: 16px;
-      margin-left: 40px;
+      margin-left: 50px;
       &:nth-child(1) {
-        margin-top: 64px;
+        margin-top: 60px;
       }
       opacity: 0;
       font-size: 0px;
