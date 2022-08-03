@@ -22,7 +22,7 @@ const Proyecto = ({ img, subtitle, url }) => {
           openProject();
         }}
       >
-        <img src={`./src/images/${img}`} alt="proyecto-ej" />
+        <img src={`./images/${img}`} alt="proyecto-ej" />
       </div>
       <div className="card-body">
         <p className="card-subtitle">{subtitle}</p>

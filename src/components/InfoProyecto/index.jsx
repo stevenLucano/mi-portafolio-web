@@ -27,7 +27,7 @@ const InfoProyecto = () => {
         >
           <i className="fa-solid fa-xmark"></i>
         </div>
-        <img src={`./src/images/${ImgInfo.img}`} alt="Imagen del proyecto" />
+        <img src={`./images/${ImgInfo.img}`} alt="Imagen del proyecto" />
       </div>
       <div className="link-info">
         <a href="#">{ImgInfo.url}</a>
