@@ -1,6 +1,6 @@
 import "./styles.scss";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contacto = () => {
@@ -12,10 +12,10 @@ const Contacto = () => {
     /* Tener en cuenta que vite maneja import.meta.env y las variables deben iniciar con VITE_KEY */
     emailjs
       .sendForm(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
+        process.env.SERVICE_ID,
+        process.env.TEMPLATE_ID,
         form.current,
-        import.meta.env.VITE_PUBLIC_KEY
+        process.env.PUBLIC_KEY
       )
       .then(
         (result) => {
@@ -26,6 +26,11 @@ const Contacto = () => {
         }
       );
   };
+
+  // useEffect(() => {
+  //   console.log("que onda");
+  //   console.log(process.env.VITE_PUBLIC_KEY);
+  // }, []);
 
   return (
     <section id="contacto">
