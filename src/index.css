@@ -4,6 +4,8 @@
   --sunset-orange: #E46305;
   --indigo-paper: #002544;
   --sea-blue: #016ABC;
+  --sea-blue-dark: #245493;
+  --blue-dark: #313349;
   --insubstantial: #B9DFFF;
   --blue-sky: #ECF6FF;
 }
@@ -12,6 +14,7 @@
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
 
 }
 html {

@@ -1,7 +1,7 @@
 #portafolio {
   width: 100%;
   padding-bottom: 10px;
-  background-color: var(--sunset-orange);
+  background-color: var(--insubstantial);
   display: flex;
   flex-direction: column;
   scroll-margin-top: 0px;
@@ -12,8 +12,8 @@
   font-size: 30px;
   text-transform: uppercase;
   display: inline-block;
-  color: var(--blue-sky);
-  border-bottom: 2px solid var(--blue-sky);
+  color: var(--indigo-paper);
+  border-bottom: 2px solid var(--indigo-paper);
   margin: 20px 10vw;
 }
 
