@@ -21,6 +21,11 @@
   position: relative;
   padding: 30px;
 
+  .cols {
+    display: flex;
+    flex-direction: column;
+  }
+
   .contact {
     &-title {
       margin-top: 30px;
@@ -49,12 +54,56 @@
       color: hsl(228 12% 80%);
       font-size: 16px;
       position: absolute;
+      top: 0;
       left: 0;
       margin-left: 20px;
       margin-top: 14px;
       text-transform: uppercase;
       transition: 0.5s;
       pointer-events: none;
+
+      &-error {
+        top: -24px;
+        font-size: 11px;
+        padding: 2px 6px;
+        color: var(--sea-blue);
+        letter-spacing: 2px;
+        font-weight: bold;
+        background-color: red;
+        color: var(--blue-sky);
+      }
+
+      &-right {
+        top: -24px;
+        font-size: 11px;
+        padding: 2px 6px;
+        color: var(--sea-blue);
+        letter-spacing: 2px;
+        font-weight: bold;
+        background: var(--blue-sky);
+        color: var(--indigo-paper);
+      }
+    }
+
+    .shadow {
+      position: absolute;
+      width: 0px;
+      height: calc(100% + 2px);
+      background: var(--blue-sky);
+      transition: 0.5s;
+      z-index: -1;
+      left: -1px;
+      top: -1px;
+
+      &-error {
+        width: calc(100% + 2px);
+        background: red;
+      }
+
+      &-right {
+        width: calc(100% + 2px);
+        background: var(--blue-sky);
+      }
     }
 
     input {
@@ -70,8 +119,7 @@
       height: 100%;
       font-weight: 100;
 
-      &:focus ~ .text,
-      &:valid ~ .text {
+      &:focus ~ .text {
         top: -24px;
         background-color: var(--blue-sky);
         font-size: 11px;
@@ -79,23 +127,15 @@
         color: var(--sea-blue);
         letter-spacing: 2px;
         font-weight: bold;
+        &-error {
+          background-color: red;
+          color: var(--blue-sky);
+        }
       }
 
-      &:focus ~ .shadow,
-      &:valid ~ .shadow {
+      &:focus ~ .shadow {
         width: calc(100% + 2px);
       }
-    }
-
-    .shadow {
-      position: absolute;
-      width: 0px;
-      height: calc(100% + 2px);
-      background: var(--blue-sky);
-      transition: 0.5s;
-      z-index: -1;
-      left: -1px;
-      top: -1px;
     }
 
     &.textarea {
@@ -122,8 +162,7 @@
         margin-bottom: -4px;
         font-weight: 100;
 
-        &:focus ~ .text,
-        &:valid ~ .text {
+        &:focus ~ .text {
           top: -24px;
           background-color: var(--blue-sky);
           font-size: 11px;
@@ -131,10 +170,14 @@
           color: var(--sea-blue);
           letter-spacing: 2px;
           font-weight: bold;
+
+          &-error {
+            background-color: red;
+            color: var(--blue-sky);
+          }
         }
 
-        &:focus ~ .shadow,
-        &:valid ~ .shadow {
+        &:focus ~ .shadow {
           width: calc(100% + 2px);
         }
       }
@@ -188,6 +231,48 @@
         .bg {
           width: 200px;
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact-container {
+    width: 50%;
+    padding: 30px 100px;
+
+    .cols {
+      flex-direction: row;
+      gap: 25px;
+    }
+
+    .contact {
+      &-title {
+        font-size: 50px;
+      }
+      &-content {
+        width: 100%;
+        font-size: 20px;
+      }
+    }
+
+    .inputBox {
+      .text {
+        font-size: 14px;
+        &-error,
+        &-right {
+          font-size: 11px;
+        }
+      }
+      &:focus ~ .text {
+        font-size: 11px;
+      }
+    }
+
+    form {
+      width: 100%;
+      .inputBox {
+        width: 100%;
       }
     }
   }
