@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from "react";
 export const ResContext = createContext();
 const ResProvider = (props) => {
   const [Resolution, setResolution] = useState("cargando...");
-  const [ImgInfo, setImgInfo] = useState({ img: "", url: "" });
+  const [ImgInfo, setImgInfo] = useState({ img: "itachi.jpg", url: "" });
 
   window.addEventListener("resize", () => {
     changeHover(window.innerWidth, screen.width);

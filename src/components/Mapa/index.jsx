@@ -3,6 +3,8 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
+import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
+import iconUrl from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import "./styles.scss";
 
@@ -26,7 +28,17 @@ const Mapa = () => {
 
   // L.Marker.prototype.options.icon = ownIcon;
 
-  const position = [3.473983, -76.5098402];
+  // const position = [3.473983, -76.5098402];
+
+  useEffect(() => {
+    delete L.Icon.Default.prototype._getIconUrl;
+
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: iconRetinaUrl,
+      iconUrl: iconUrl,
+      shadowUrl: iconShadow,
+    });
+  }, []);
 
   return (
     <div className="map-contact">
@@ -39,12 +51,16 @@ const Mapa = () => {
         st.lucano1205@gmail.com
       </div>
       <div id="map-container">
-        <MapContainer center={position} zoom={17} scrollWheelZoom={true}>
+        <MapContainer
+          center={[3.473983, -76.5098402]}
+          zoom={17}
+          scrollWheelZoom={true}
+        >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={position}>
+          <Marker position={[3.473983, -76.5098402]}>
             <Popup>
               <span className="popup-content">Mi hogar 🏠</span>
             </Popup>
